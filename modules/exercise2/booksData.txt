@@ -1,0 +1,3 @@
+Book The Hobbit by John Ronald is of genre Fantasy Fiction 
+Book Pride and Prejudice by Jane Austen is of genre Romance 
+Book Little women by  Louisa May Alcott is of genre Novel 
