@@ -9,19 +9,11 @@
   },
   {
     "id": "2",
-    "bookTitle": "1984",
+    "bookTitle": "The Lord of the Rings",
     "isAvailable": true,
-    "genre": "Dystopian",
-    "author": "George Orwell",
-    "pages": 328
-  },
-  {
-    "id": "3",
-    "bookTitle": "Pride and Prejudice",
-    "isAvailable": false,
-    "genre": "Romance",
-    "author": "Jane Austen",
-    "pages": 279
+    "genre": "Fantasy Fiction",
+    "author": "J.R.R. Tolkien",
+    "pages": 1000
   },
   {
     "id": "4",

@@ -8,28 +8,15 @@
 	"item": [
 		{
 			"name": "GET ALL AVAILABLE BOOKS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "GET SPECIFIC BOOK BY ID",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "ADD NEW BOOK",
-			"request": {
-				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"3\",\r\n    \"bookTitle\": \"White Noise\",\r\n    \"isAvailable\": true,\r\n    \"genre\": \"Fiction\",\r\n    \"author\": \"Don DeLillo\",\r\n    \"pages\": 290\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -44,6 +31,99 @@
 					"port": "3000",
 					"path": [
 						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET SPECIFIC BOOK BY ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/books/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD NEW BOOK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"4\",\r\n    \"bookTitle\": \"White Noise\",\r\n    \"isAvailable\": true,\r\n    \"genre\": \"Fiction\",\r\n    \"author\": \"Don DeLillo\",\r\n    \"pages\": 290\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT BOOK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"2\",\r\n    \"bookTitle\": \"The Lord of the Rings\",\r\n    \"isAvailable\": true,\r\n    \"genre\": \"Fantasy Fiction\",\r\n    \"author\": \"J.R.R. Tolkien\",\r\n    \"pages\": 1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/books/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE SPECIFIC BOOK",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/books/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"3"
 					]
 				}
 			},
