@@ -1,5 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { Budget, Currency } from 'src/interfaces/budget.interface';
+import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
+import { Budget, Currency, BudgetCreationProps } from 'src/interfaces/budget.interface';
+import { v4 as uuid } from 'uuid';
+
+
 
 @Injectable()
 export class BudgetService {
@@ -49,5 +52,47 @@ export class BudgetService {
         return this.budgets;
     }
     
+    createBudget(budgetCreationProps: BudgetCreationProps){
+        const budget: Budget = {
+            id: uuid(),
+            title: budgetCreationProps.title,
+            balance: budgetCreationProps.balance,
+            currency: budgetCreationProps.currency,
+            expenses: budgetCreationProps.expenses,
+            incomes: budgetCreationProps.incomes
+        };
+        this.budgets.push(budget);
+
+        return budget.id;
+    }
+
+    getBudget(id:string){
+        const budget = this.budgets.find((budget) => budget.id === id);
+        if(!budget){
+            throw new HttpException(`Budget with id: ${id} not found`, 404);
+        }
+        return budget;
+    }
+
+    removeBudget(id: string){
+        const budget = this.budgets.find((budget)=> budget.id === id);
+        if(!budget){
+            throw new NotFoundException(`Budget with id: ${id} not found`);
+        
+        }
+
+        this.budgets = this.budgets.filter((budget)=> budget.id !== id);
+    }
+
+    updateBudget(id: string, budgetCreationProps: BudgetCreationProps): Budget {
+        const budgetFound = this.getBudget(id);
+        budgetFound.title = budgetCreationProps.title;
+        budgetFound.balance = budgetCreationProps.balance;
+        budgetFound.currency = budgetCreationProps.currency;
+        budgetFound.expenses = budgetCreationProps.expenses;
+        budgetFound.incomes = budgetCreationProps.incomes;
+
+        return budgetFound;
+    }
 }
 

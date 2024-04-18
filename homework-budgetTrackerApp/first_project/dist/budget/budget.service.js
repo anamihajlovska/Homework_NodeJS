@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BudgetService = void 0;
 const common_1 = require("@nestjs/common");
 const budget_interface_1 = require("../interfaces/budget.interface");
+const uuid_1 = require("uuid");
 let BudgetService = class BudgetService {
     constructor() {
         this.budgets = [
@@ -54,6 +55,41 @@ let BudgetService = class BudgetService {
     }
     readBudgets() {
         return this.budgets;
+    }
+    createBudget(budgetCreationProps) {
+        const budget = {
+            id: (0, uuid_1.v4)(),
+            title: budgetCreationProps.title,
+            balance: budgetCreationProps.balance,
+            currency: budgetCreationProps.currency,
+            expenses: budgetCreationProps.expenses,
+            incomes: budgetCreationProps.incomes
+        };
+        this.budgets.push(budget);
+        return budget.id;
+    }
+    getBudget(id) {
+        const budget = this.budgets.find((budget) => budget.id === id);
+        if (!budget) {
+            throw new common_1.HttpException(`Budget with id: ${id} not found`, 404);
+        }
+        return budget;
+    }
+    removeBudget(id) {
+        const budget = this.budgets.find((budget) => budget.id === id);
+        if (!budget) {
+            throw new common_1.NotFoundException(`Budget with id: ${id} not found`);
+        }
+        this.budgets = this.budgets.filter((budget) => budget.id !== id);
+    }
+    updateBudget(id, budgetCreationProps) {
+        const budgetFound = this.getBudget(id);
+        budgetFound.title = budgetCreationProps.title;
+        budgetFound.balance = budgetCreationProps.balance;
+        budgetFound.currency = budgetCreationProps.currency;
+        budgetFound.expenses = budgetCreationProps.expenses;
+        budgetFound.incomes = budgetCreationProps.incomes;
+        return budgetFound;
     }
 };
 exports.BudgetService = BudgetService;

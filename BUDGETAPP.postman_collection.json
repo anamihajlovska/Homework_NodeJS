@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "5c39a8d4-8c02-45ba-a1dc-fef4a756bc24",
+		"name": "BUDGETAPP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33374059"
+	},
+	"item": [
+		{
+			"name": "CREATE BUDGET",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Education Budget\",\r\n  \"balance\": 3000,\r\n  \"currency\": \"USD\",\r\n  \"expenses\": [\r\n    {\r\n      \"id\": \"1\",\r\n      \"amount\": 1500,\r\n      \"description\": \"Tuition fees\"\r\n    },\r\n    {\r\n      \"id\": \"2\",\r\n      \"amount\": 800,\r\n      \"description\": \"Books and supplies\"\r\n    },\r\n    {\r\n      \"id\": \"3\",\r\n      \"amount\": 400,\r\n      \"description\": \"Transportation\"\r\n    },\r\n    {\r\n      \"id\": \"4\",\r\n      \"amount\": 300,\r\n      \"description\": \"Miscellaneous\"\r\n    }\r\n  ],\r\n  \"incomes\": [\r\n    {\r\n      \"id\": \"1\",\r\n      \"amount\": 4000,\r\n      \"description\": \"Scholarship\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/budgets",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"budgets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL BUDGETS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/budgets",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"budgets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/budgets/b4988678-3633-4722-a56b-00c4ac8f437a",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"budgets",
+						"b4988678-3633-4722-a56b-00c4ac8f437a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE BUDGET",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/budgets/a0f209b9-803c-41e9-a191-f5d85ca54fa3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"budgets",
+						"a0f209b9-803c-41e9-a191-f5d85ca54fa3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update budget",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n        \"title\": \"Updated Education Budget\",\r\n        \"balance\": 4000,\r\n        \"currency\": \"USD\",\r\n        \"expenses\": [\r\n            {\r\n                \"id\": \"1\",\r\n                \"amount\": 2000,\r\n                \"description\": \"Tuition fees\"\r\n            },\r\n            {\r\n                \"id\": \"2\",\r\n                \"amount\": 800,\r\n                \"description\": \"Books and supplies\"\r\n            },\r\n            {\r\n                \"id\": \"3\",\r\n                \"amount\": 400,\r\n                \"description\": \"Transportation\"\r\n            },\r\n            {\r\n                \"id\": \"4\",\r\n                \"amount\": 300,\r\n                \"description\": \"Miscellaneous\"\r\n            }\r\n        ],\r\n        \"incomes\": [\r\n            {\r\n                \"id\": \"1\",\r\n                \"amount\": 4000,\r\n                \"description\": \"Scholarship\"\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/budgets/05d4bdcc-23ea-4ee5-96eb-f617fe5a4d45",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"budgets",
+						"05d4bdcc-23ea-4ee5-96eb-f617fe5a4d45"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,9 +1,9 @@
-interface Expense {
+export interface Expense {
     id: string;
     amount: number;
     description: string;
 }
-interface Income {
+export interface Income {
     id: string;
     amount: number;
     description: string;
@@ -21,4 +21,10 @@ export interface Budget {
     expenses: Expense[];
     incomes: Income[];
 }
-export {};
+export interface BudgetCreationProps {
+    title: string;
+    balance: number;
+    currency: Currency;
+    expenses: Expense[];
+    incomes: Income[];
+}
